@@ -1,0 +1,39 @@
+managed implementation in class zbp_mdb_i_country unique;
+//strict;
+
+define behavior for YMDB_I_COUNTRY alias Country
+persistent table YMDB_COUNTRY
+lock master
+{
+  association _Country_t {create;}
+
+  create;
+  update;
+  delete;
+
+  field(readonly:update) CountryId;
+
+  mapping for ymdb_country {
+    CountryId = country_id;
+  }
+}
+
+define behavior for YMDB_I_COUNTRY_T alias Country_t
+implementation in class zbp_mdb_i_country_t unique
+persistent table YMDB_COUNTRY_T
+lock dependent by _Country
+//etag master <field_name>
+{
+  association _Country;
+
+  field( readonly ) CountryId;
+
+  update;
+  delete;
+
+  mapping for ymdb_country_t {
+    CountryId = country_id;
+    LanguageCode = language_code;
+    CountryName = country_name;
+  }
+}

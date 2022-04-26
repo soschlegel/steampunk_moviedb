@@ -1,0 +1,48 @@
+@Metadata.layer: #CORE
+annotate entity YMDB_I_ROLE with
+{
+  @UI.facet: [{
+            id: 'idGeneralInfo',
+            type: #COLLECTION,
+            label: 'Role',
+            position: 10 
+        }, { 
+            id: 'idMovieData',
+            parentId: 'idGeneralInfo',
+            type: #IDENTIFICATION_REFERENCE,
+            label: 'Role Data',
+            position: 10
+        }, { 
+            id: 'idMyData',
+            purpose: #STANDARD,
+            label: 'My Data',
+            position: 20,
+            parentId: 'idGeneralInfo',
+            type: #FIELDGROUP_REFERENCE,
+            targetQualifier: 'tqMyData'
+  }]
+   
+  @UI.identification: [{ position: 0 }]
+  MovieId;
+  
+  @UI.lineItem: [ { position: 10 } ]
+  @UI.identification: [{ position: 10 }]
+  @EndUserText.label: 'Rolename'
+  RoleName;
+  
+  @UI.lineItem: [{ position: 15 }]
+  @UI.identification: [{ position: 15 }]
+  @EndUserText.label: 'Actor'
+  ActorName;
+  
+  @UI.lineItem: [{ position: 20 }]
+  @UI.identification: [{ position: 20 }]
+  @EndUserText.label: 'Type of Character'
+  Importancy;
+  
+  @UI.lineItem: [{ position: 30 }]
+  @UI.identification: [{ position: 30 }]
+  @EndUserText.label: 'Type of Acting'
+  TypeofActing;
+    
+}

@@ -1,0 +1,8 @@
+@Metadata.layer: #CORE
+annotate entity YMDB_A_RATEDIALOGBOX with
+{
+    @EndUserText.label: 'New Rating:'
+    @Consumption.valueHelpDefinition: [{ entity:{name: 'YMDB_I_RATING', element: 'Rating'} }]
+    rating;
+    
+}

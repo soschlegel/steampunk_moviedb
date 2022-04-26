@@ -1,0 +1,25 @@
+projection;
+use draft;
+//strict; //Comment this line in to enable strict mode. The strict mode is prerequisite to be future proof regarding syntax and to be able to release your BO.
+
+define behavior for YMDB_C_PERSON alias Person
+{
+  use create;
+  use update;
+  use delete;
+
+  use association _WList {create; with draft;}
+
+}
+
+define behavior for YMDB_C_WLIST alias WList
+{
+    use update;
+    use delete;
+
+    use association _Person {with draft;}
+    use association _Movie {with draft;}
+
+    use action mark_as_watched;
+    use action changeRating;
+}
