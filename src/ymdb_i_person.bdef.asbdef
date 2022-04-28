@@ -1,0 +1,76 @@
+managed implementation in class ybp_mdb_i_person unique;
+with draft;
+
+define behavior for YMDB_I_PERSON alias Person
+persistent table ymdb_person
+draft table ymdb_d_person
+lock master total etag LastChangedAt
+{
+  association _WList { create; with draft;}
+
+  field ( readonly, numbering : managed ) PersonId;
+  field ( mandatory ) LastName;
+  field ( readonly ) age;
+
+  create;
+  update;
+  delete;
+
+  validation validateName on save { create; field LastName; }
+  validation validateBirtDay on save { create; field BirthDay; }
+
+  draft determine action Prepare
+  {
+      validation validateName;
+      validation validateBirtDay;
+      validation WList~validateRating;
+      validation WList~validateMovieId;
+      validation WList~validateDuplicate;
+      validation WList~validateWatchStatus;
+  }
+
+  mapping for YMDB_PERSON
+  {
+    PersonId = person_id;
+    FirstName = first_name;
+    LastName = last_name;
+    LastChangedAt = last_changed_at;
+    BirthDay = birth_day;
+  }
+}
+
+define behavior for YMDB_I_WLIST alias WList
+implementation in class ybp_mdb_i_wlist unique
+persistent table ymdb_wlist
+draft table ymdb_d_wlist
+lock dependent by _Person
+{
+  association _Person{with draft;}
+  association _Movie{with draft;}
+
+  field ( readonly ) PersonId;
+  field ( numbering : managed, readonly ) WListUuid;
+  field ( mandatory ) Rating;
+
+  update;
+  delete;
+
+  action ( features : instance ) mark_as_watched result [1] $self;
+  action changeRating parameter YMDB_A_RATEDIALOGBOX result [1] $self;
+
+  validation validateRating on save {create; field Rating; field WatchStatus;}
+  validation validateMovieId on save { create; field MovieId;}
+  validation validateDuplicate on save { create; field MovieId; }
+  validation validateWatchStatus on save { create; field WatchStatus; }
+
+  mapping for YMDB_WLIST
+  {
+    WListUuid = wlist_uuid;
+    PersonId = person_id;
+    MovieId = movie_id;
+    Rating = rating;
+    Watchtime = watch_time;
+    WatchStatus = watch_status;
+    LastChangedAt = last_changed_at;
+  }
+}

@@ -1,0 +1,16 @@
+@EndUserText.label: 'Service Definition Movies'
+define service YMDB_SD_MOVIE {
+  expose YMDB_C_MOVIE as Movies;
+  expose YMDB_C_PERSON as UserList;
+  expose YMDB_C_WLIST as WatchList;
+  expose YMDB_C_ACTOR as Actors;
+  expose YMDB_C_ROLE as Role;
+  expose YMDB_C_WLIST_PERSON_CHART as ChartPerson;
+  expose YMDB_C_WLIST_MOVIE_CHART as ChartMovie;
+  expose YMDB_C_MOVIE_DEMO as MovieOMDB;
+  expose YMDB_C_COUNTRY as Country;
+  expose I_Country as CountryCode;
+  expose YMDB_IMPORTANCY_VH as ImportancyVH;
+  expose YMDB_TYPE_OF_ACTING_VH as TypeOfActingVH;
+  expose YMDB_RATING_VH as RatingVH;
+}

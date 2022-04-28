@@ -1,0 +1,57 @@
+@Metadata.layer: #CORE
+@UI.presentationVariant: [
+  {
+    requestAtLeast:[ 'Watchtime' ] } ]
+
+annotate entity YMDB_I_WLIST
+    with 
+{
+  @UI.facet: [{
+    id: 'idGeneralInfo',
+    type: #COLLECTION,
+    label: 'Movie',
+    position: 10 
+    }, { 
+    id: 'idMovieData',
+    parentId: 'idGeneralInfo',
+    type: #IDENTIFICATION_REFERENCE,
+    label: 'Movie Data',
+    position: 10
+    }, { 
+    id: 'idMyData',
+    purpose: #STANDARD,
+    label: 'Personal Data',
+    position: 20,
+    parentId: 'idGeneralInfo',
+    type: #FIELDGROUP_REFERENCE,
+    targetQualifier: 'tqMyData'
+  }]
+  
+  @UI.lineItem: [{ position:10 }]
+  @UI.hidden: true
+  WListUuid;
+
+  @UI.identification: [{position: 10 }]
+  MovieId;
+  
+  @UI.lineItem: [{ position: 50 }, { type: #FOR_ACTION, dataAction: 'changeRating', label: 'Rate?' }]
+  @UI.selectionField: [{ position: 40 }]
+  @UI.fieldGroup: [{qualifier: 'tqMyData', position: 10 }]
+  @UI.lineItem:[{type: #AS_DATAPOINT}]
+  @UI.dataPoint.visualization: #RATING
+  @UI.dataPoint.targetValue: 5
+  @UI.dataPoint.title: 'Rating'
+  @Consumption.valueHelpDefinition: [{ entity:{name: 'YMDB_RATING_VH', element: 'value_low'} }]
+  @EndUserText.label: 'Rating'
+  Rating;
+  
+  @UI.lineItem: [{ position: 60 , criticality: 'WatchStatusCriticallity'}, { type: #FOR_ACTION, dataAction: 'mark_as_watched', label: 'Watched?' }]
+  @UI.fieldGroup: [{qualifier: 'tqMyData', position: 20 }]
+  @UI.selectionField: [{position: 50 }]
+  @EndUserText.label: 'Watched'
+  WatchStatus;
+  
+  @UI.hidden: true
+  PersonId;
+    
+}

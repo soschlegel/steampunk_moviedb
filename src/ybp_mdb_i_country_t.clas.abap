@@ -1,0 +1,5 @@
+CLASS ybp_mdb_i_country_t DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF ymdb_i_country.
+ENDCLASS.
+
+CLASS ybp_mdb_i_country_t IMPLEMENTATION.
+ENDCLASS.

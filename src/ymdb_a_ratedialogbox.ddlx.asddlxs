@@ -1,0 +1,7 @@
+@Metadata.layer: #CORE
+annotate entity YMDB_A_RATEDIALOGBOX with
+{
+    @EndUserText.label: 'New Rating:'
+    rating;
+    
+}

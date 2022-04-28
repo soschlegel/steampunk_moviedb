@@ -1,0 +1,10 @@
+projection;
+use draft;
+
+define behavior for YMDB_C_MOVIE
+{
+  use create;
+  use update;
+  use delete;
+
+}

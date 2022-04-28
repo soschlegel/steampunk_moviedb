@@ -1,0 +1,68 @@
+@Metadata.layer: #CORE
+annotate entity YMDB_I_PERSON with
+{
+  @UI.facet: [{
+        id: 'idGeneralInfo',
+        type: #COLLECTION,
+        label: 'Person',
+        position: 10
+    }, {
+        id: 'idPersonalData',
+        parentId: 'idGeneralInfo',
+        type: #IDENTIFICATION_REFERENCE,
+        label: 'Data',
+        position: 10
+    }, {
+        id: 'idMyData',
+        purpose: #STANDARD,
+        label: 'My Data',
+        position: 20,
+        parentId: 'idGeneralInfo',
+        type: #FIELDGROUP_REFERENCE,
+        targetQualifier: 'tqMyData'
+    }, {
+        id: 'idStatisticData',
+        parentId: 'idGeneralInfo',
+        type: #FIELDGROUP_REFERENCE,
+        label: 'Statistic Data',
+        targetQualifier: 'tqStatistic',
+        position: 30
+    }, {
+        id: 'Movie',
+        purpose: #STANDARD,
+        type: #LINEITEM_REFERENCE,
+        label: 'Watchlist',
+        position: 50,
+        targetElement: '_WList'
+    }]
+
+  @UI.lineItem: [{ position:10 }]
+  @UI.hidden: true
+  PersonId;
+
+  @UI.lineItem: [{ position:20, importance:#HIGH }]
+  @UI.identification: [{position: 30 }]
+  @UI.selectionField: [{ position: 10}]
+  @EndUserText.label: 'First Name'
+  FirstName;
+
+  @UI.lineItem: [{ position:20 }]
+  @UI.identification: [{position: 40 }]
+  @UI.selectionField: [{ position: 20}]
+  @EndUserText.label: 'Last Name'
+  LastName;
+  
+  @UI.lineItem: [{ position:40 }]
+  @UI.identification: [{position: 50, criticality: 'BirthDayCriticallity' }]
+  @EndUserText.label: 'Birth Day'
+  BirthDay;
+  
+  @EndUserText.label: 'Age'
+  @UI.identification: [{ position: 60 }]
+  age;
+  
+  @UI.lineItem: [{ position:60 }]
+  @EndUserText.label: 'Last Changed'
+  LastChangedAt;
+
+}

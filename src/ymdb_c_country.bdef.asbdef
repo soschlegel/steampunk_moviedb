@@ -1,0 +1,10 @@
+projection implementation in class ybp_mdb_c_country unique;
+
+define behavior for YMDB_C_COUNTRY alias Country
+{
+  use create ( augment );
+  use update ( augment );
+  use delete;
+
+  field ( modify ) CountryName;
+}

@@ -1,0 +1,17 @@
+{
+"BASEINFO":
+{
+"FROM":
+[
+"YMDB_I_WLIST_PERSON_CHART"
+],
+"ASSOCIATED":
+[],
+"BASE":
+[],
+"ANNO_REF":
+[],
+"VERSION":0,
+"ANNOREF_EVALUATION_ERROR":""
+}
+}

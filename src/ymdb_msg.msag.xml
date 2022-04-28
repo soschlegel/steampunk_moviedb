@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_MSAG" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <T100A>
+    <ARBGB>YMDB_MSG</ARBGB>
+    <MASTERLANG>E</MASTERLANG>
+    <STEXT>Error Messages</STEXT>
+   </T100A>
+   <T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>YMDB_MSG</ARBGB>
+     <MSGNR>001</MSGNR>
+     <TEXT>Rating is not in the rage of 1 to 5.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>YMDB_MSG</ARBGB>
+     <MSGNR>002</MSGNR>
+     <TEXT>Release date &amp;1 must be on or after system date.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>YMDB_MSG</ARBGB>
+     <MSGNR>003</MSGNR>
+     <TEXT>The specified movie does not exist.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>YMDB_MSG</ARBGB>
+     <MSGNR>004</MSGNR>
+     <TEXT>The title should not be empty.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>YMDB_MSG</ARBGB>
+     <MSGNR>005</MSGNR>
+     <TEXT>The movie alredy exists in your watchlist.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>YMDB_MSG</ARBGB>
+     <MSGNR>006</MSGNR>
+     <TEXT>To rate the movie please mark it as watched.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>YMDB_MSG</ARBGB>
+     <MSGNR>007</MSGNR>
+     <TEXT>The last name should not be empty.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>YMDB_MSG</ARBGB>
+     <MSGNR>008</MSGNR>
+     <TEXT>Importancy must be either &apos;VOICE&apos;, &apos;SCREEN&apos; or empty.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>YMDB_MSG</ARBGB>
+     <MSGNR>009</MSGNR>
+     <TEXT>Importancy must be either &apos;LEAD&apos;, &apos;SUPPORT&apos;, &apos;BACKGROUND&apos; or empty.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>YMDB_MSG</ARBGB>
+     <MSGNR>010</MSGNR>
+     <TEXT>The role name should not be empty.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>YMDB_MSG</ARBGB>
+     <MSGNR>011</MSGNR>
+     <TEXT>You are not old enough to watch this film.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>YMDB_MSG</ARBGB>
+     <MSGNR>012</MSGNR>
+     <TEXT>Birthday &amp;1 must be on or after system date.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>YMDB_MSG</ARBGB>
+     <MSGNR>013</MSGNR>
+     <TEXT>Don&apos;t leave any field empty.</TEXT>
+    </T100>
+   </T100>
+  </asx:values>
+ </asx:abap>
+</abapGit>
