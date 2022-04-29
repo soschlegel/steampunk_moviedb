@@ -46,7 +46,7 @@ draft table ymdb_d_wlist
 lock dependent by _Person
 {
   association _Person{with draft;}
-  association _Movie{with draft;}
+//  association _Movie{with draft;}
 
   field ( readonly ) PersonId;
   field ( numbering : managed, readonly ) WListUuid;

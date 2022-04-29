@@ -1,0 +1,91 @@
+@Metadata.layer: #CORE
+@UI.headerInfo : {
+    typeName : 'My Movie',
+    typeNamePlural : 'Meine Filme',
+    title : {
+        type : #STANDARD , value : 'Title'
+    },
+    imageUrl: 'MoviePicURL'
+}
+annotate entity YMDB_C_MOVIE_MY with
+{
+  @UI.facet: [{
+         id: 'idGeneralInfo',
+         type: #COLLECTION,
+         label: 'Movie',
+         position: 10
+     }, {
+         id: 'idMovieData',
+         parentId: 'idGeneralInfo',
+         type: #IDENTIFICATION_REFERENCE,
+         label: 'Movie Data',
+         position: 20
+     }, {
+         id: 'idStatisticData',
+         parentId: 'idGeneralInfo',
+         type: #FIELDGROUP_REFERENCE,
+         label: 'Statistic Data',
+         targetQualifier: 'tqStatistic',
+         position: 30
+     }, {
+         id: 'idRating',
+         purpose: #STANDARD,
+         label: 'Rating',
+         position: 30,
+         parentId: 'idGeneralInfo',
+         type: #FIELDGROUP_REFERENCE,
+         targetQualifier: 'tqRating'
+     }, {
+         id: 'idlinks',
+         purpose: #STANDARD,
+         label: 'Links',
+         position: 50,
+         type: #FIELDGROUP_REFERENCE,
+         targetQualifier: 'tqLinks'
+     }]
+
+  MovieId;
+
+  @UI.lineItem: [{ position:20, type: #WITH_URL, url: 'LinkToImdb' }]
+  @UI.identification: [ {position: 30} ]
+  @UI.selectionField: [{ position: 0 }]
+  @EndUserText.label: 'Movie Title'
+  Title;
+
+  @UI.lineItem: [{ position: 30 }]
+  @UI.identification: [{ position: 40}]
+  @UI.selectionField: [{ position: 10 }]
+  @EndUserText.label: 'Category'
+  Category;
+
+  @UI.lineItem: [{ position:40 }]
+  @UI.identification: [ {position: 50} ]
+  @UI.selectionField: [{ position: 20 }]
+  @EndUserText.label: 'Release Date'
+  ReleaseDate;
+
+  @UI.lineItem: [{ position: 50 }]
+  @UI.identification: [{ position: 60 }]
+  @UI.selectionField: [{ position: 30 }]
+  PEGI;
+
+  @UI.lineItem: [{ position: 60 }]
+  @UI.identification: [{ position: 70 }]
+  @EndUserText.label: 'Runtime in minutes'
+  Runtime;
+
+  @UI.fieldGroup: [{ groupLabel: 'Rating', qualifier: 'tqRating', position: 10  }]
+  @EndUserText.label: 'Opinion'
+  Opinion;
+
+  @UI.hidden: true
+  LastChangedAt;
+
+  @UI.fieldGroup: [{ qualifier: 'tqLinks', position: 10, type: #WITH_URL, url: 'LinkToImdb' }]
+  LinkToImdb;
+
+  @UI.fieldGroup: [{ qualifier: 'tqLinks', position: 20, type: #WITH_URL, url: 'MoviePicURL' }]
+  @EndUserText.label: 'Picture'
+  MoviePicURL;
+
+}

@@ -12,9 +12,9 @@ define behavior for YMDB_C_ACTOR alias Actor
 
 define behavior for YMDB_C_ROLE alias Role
 {
-    use update;
-    use delete;
+  use update;
+  use delete;
 
-    use association _Actor {with draft; }
-    use association _Movie {with draft; }
+  use association _Actor { with draft; }
+//  use association _Movie { with draft; }
 }

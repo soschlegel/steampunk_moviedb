@@ -51,7 +51,6 @@ draft table ymdb_d_role
 lock dependent by _Actor
 {
   association _Actor { with draft; }
-  association _Movie { with draft; }
 
   field ( readonly ) ActorId;
   field ( numbering : managed, readonly ) RoleId;

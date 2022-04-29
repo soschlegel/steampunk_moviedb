@@ -1,0 +1,5 @@
+CLASS ybp_mdb_c_movie_my DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF ymdb_c_movie_my.
+ENDCLASS.
+
+CLASS ybp_mdb_c_movie_my IMPLEMENTATION.
+ENDCLASS.

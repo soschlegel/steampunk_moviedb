@@ -1,6 +1,7 @@
 @EndUserText.label: 'Service Definition Movies'
 define service YMDB_SD_MOVIE {
   expose YMDB_C_MOVIE as Movies;
+  expose YMDB_C_MOVIE_MY as MyMovies;
   expose YMDB_C_PERSON as UserList;
   expose YMDB_C_WLIST as WatchList;
   expose YMDB_C_ACTOR as Actors;

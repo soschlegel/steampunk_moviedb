@@ -1,27 +1,34 @@
 managed implementation in class ybp_mdb_i_movie unique;
-with draft;
+//with draft;
 
 define behavior for YMDB_I_MOVIE alias Movies
-persistent table YMDB_MOVIE
-draft table YMDB_D_MOVIE
-lock master total etag LastChangedAt
+persistent table ymdb_movie
+//draft table ymdb_d_movie
+//lock master total etag LastChangedAt
+lock master etag LastChangedAt
+//authorization master ( instance )
 {
 
-  field(readonly, numbering : managed) MovieId;
-  field(mandatory) Title;
+  field ( readonly, numbering : managed ) MovieId;
+  field ( mandatory ) Title;
   create;
   update;
   delete;
 
-  validation validateDate on save {create; field ReleaseDate;}
-  validation validateTitle on save {create; field Title;}
+  //  association _Opinion { with draft; }
+  association _Opinion { create; }
 
-  draft determine action Prepare {
-    validation validateDate;
-    validation validateTitle;
-  }
+  validation validateDate on save { create; field ReleaseDate; }
+  validation validateTitle on save { create; field Title; }
 
-  mapping for ymdb_movie {
+  //  draft determine action Prepare
+  //  {
+  //    validation validateDate;
+  //    validation validateTitle;
+  //  }
+
+  mapping for ymdb_movie
+  {
     MovieId = movie_id;
     Title = title;
     ReleaseDate = release_date;
@@ -32,4 +39,32 @@ lock master total etag LastChangedAt
     MoviePicURL = movie_pic_url;
     Runtime = run_time;
   }
+}
+
+define behavior for ymdb_i_Movie_Opinion alias Opinion
+//implementation in class ybp_mdb_i_movie_opinion unique
+persistent table ymdb_movie_opn
+lock dependent by _Movie
+//draft table ymdb_d_movie_opn
+
+etag master LastChangedAt
+{
+
+  update;
+  delete;
+
+  field ( readonly ) MovieId;
+
+  field ( mandatory : create ) Uname;
+
+  mapping for ymdb_movie_opn
+  {
+    MovieId = movie_id;
+    Uname = uname;
+    Opinion = opinion;
+    LastChangedAt = last_changed_at;
+  }
+
+
+
 }

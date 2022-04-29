@@ -6,9 +6,6 @@ CLASS lhc_movies DEFINITION INHERITING FROM cl_abap_behavior_handler.
       IMPORTING keys FOR Movies~validateDate.
     METHODS validateTitle FOR VALIDATE ON SAVE
       IMPORTING keys FOR Movies~validateTitle.
-    METHODS get_features FOR FEATURES
-      IMPORTING keys   REQUEST requested_features FOR Movies
-      RESULT    result.
 
 ENDCLASS.
 
@@ -58,10 +55,6 @@ CLASS lhc_movies IMPLEMENTATION.
                        ) TO reported-movies.
       ENDIF.
     ENDLOOP.
-
-  ENDMETHOD.
-
-  METHOD get_features.
 
   ENDMETHOD.
 
